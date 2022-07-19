@@ -1,0 +1,14 @@
+
+# explanations
+
+## 1. npm init
+https://docs.npmjs.com/cli/v8/commands/npm-init
+
+For Node.js, PhpStorm just runs the npm init command to generate a package.json file.
+(in terminal, go to server (cd server) and type 'npm init')
+
+then type "npm install express --save", to install express => the package.json is created.
+
+The default is te add the node_modules to your gitignore, and store the package.json and package-lock.json file changes.
+
+https://flaviocopes.com/should-commit-node-modules-git/
