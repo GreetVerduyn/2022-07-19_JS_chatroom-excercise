@@ -37,3 +37,18 @@ JavaScript (which can be run either in the browser, in Node.js or in React Nativ
  - Installation steps   https://socket.io/docs/v4/client-installation/
  - API                  https://socket.io/docs/v4/client-api/
  - Source code          https://github.com/socketio/socket.io-client
+
+Socket.IO provides a convenient way to send an event and receive a response:
+
+Sender
+
+ socket.emit("hello", "world", (response) => {
+ console.log(response); // "got it"
+ });
+
+Receiver
+
+ socket.on("hello", (arg, callback) => {
+ console.log(arg); // "world"
+ callback("got it");
+ });
