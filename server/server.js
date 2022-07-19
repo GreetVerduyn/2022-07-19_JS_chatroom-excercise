@@ -8,7 +8,8 @@ app.use(express.static(clientPath));                // To use express to host th
 const server = http.createServer(app);              // To use http to serve the app that express provides
 const port = 8080;
 
-const io = require('socket.io')(server);
+const { Server } = require("socket.io");
+const io = new Server(server);
 
 
 server.listen(port, () =>{
@@ -21,14 +22,19 @@ io.on('connection', (socket) => {
     counter += 1;
     console.log(counter+' someone connected')
 
+    socket.on('sendToMe', (msg) => {
+        console.log('send: ' + msg);
+        socket.emit("displayMessage",(msg));
+    });
 
+    socket.on('sendToAll', (msg) => {
+        console.log('send: ' + msg);
+        io.emit("displayMessage", (msg));
+    });
 });
 
-/*
-socket.on('sendToAll', (message) =>{
-    io.emit("displayMessage", (message));
-});
-*/
+
+
 
 
 

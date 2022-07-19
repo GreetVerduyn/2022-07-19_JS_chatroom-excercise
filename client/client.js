@@ -1,20 +1,30 @@
 
-let socket = io.connect();
+let socket = io();
 
 let textClient = document.getElementById('input')
 
-
+/*
 document.getElementById('sentToAll').onclick = function () {
    socket.emit("sendToAll", textClient.value);
 }
 
 document.getElementById('sent').onclick = function () {
    socket.emit("sndMsg", textClient.value);
+}*/
+const sendToAll = () => {
+   socket.emit("sendToAll", textClient.value);
 }
+
+const sendToMe = () => {
+   socket.emit("sendToMe", textClient.value);
+}
+
 
 socket.on('displayMessage', (message) => {
    target.innerHTML += '<br>'+message;
 });
+
+
 
 
 
