@@ -15,6 +15,12 @@ server.listen(port, () =>{
     console.log("server running on "+port);
 });
 
+let counter=0;
+
 io.on('connection', (socket) => {
-    console.log('someone connected');
+    counter += 1;
+    console.log(counter+' someone connected')
+
+
 });
+

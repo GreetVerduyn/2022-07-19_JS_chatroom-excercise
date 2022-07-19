@@ -12,3 +12,28 @@ then type "npm install express --save", to install express => the package.json i
 The default is te add the node_modules to your gitignore, and store the package.json and package-lock.json file changes.
 
 https://flaviocopes.com/should-commit-node-modules-git/
+
+## 2. socket IO
+https://socket.io/docs/v4/
+
+Socket.IO is a library that enables low-latency, bidirectional and event-based communication
+between a client and a server.
+
+It is built on top of the WebSocket protocol and provides additional guarantees like fallback to
+HTTP long-polling or automatic reconnection.
+
+There are several Socket.IO server implementations available:
+
+JavaScript
+
+ - Installation steps   https://socket.io/docs/v4/server-installation/
+ - API                  https://socket.io/docs/v4/server-api/
+ - Source code          https://github.com/socketio/socket.io
+
+And client implementations in most major languages:
+
+JavaScript (which can be run either in the browser, in Node.js or in React Native)
+
+ - Installation steps   https://socket.io/docs/v4/client-installation/
+ - API                  https://socket.io/docs/v4/client-api/
+ - Source code          https://github.com/socketio/socket.io-client
