@@ -10,7 +10,7 @@ const port = 8080;
 
 const { Server } = require("socket.io");
 const io = new Server(server);
-
+let users = [];
 
 server.listen(port, () =>{
     console.log("server running on "+port);
@@ -32,6 +32,13 @@ io.on('connection', (socket) => {
         socket.emit("displayMessage",(message));
     });
 
+    socket.on("login", (userName)=>{
+        let user= {
+            name: userName,
+        }
+        users.push(user);
+        io.emit("loggedInUsers",(users));
+        });
 
 });
 

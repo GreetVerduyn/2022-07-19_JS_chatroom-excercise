@@ -2,25 +2,39 @@
 let socket = io();
 
 let textClient = document.getElementById('input')
+let loggedInUsers = document.getElementById('allUsers')
+
+// set userName
+let userName = prompt("enter your name?");
 
 // send message
 const sendToAll = () => {
-   socket.emit("sendToAll", textClient.value);
+   const message = {
+      name: userName,
+      msg: textClient.value,
+   }
+   socket.emit("sendToAll", message);
 }
 
 const sendToMe = () => {
    socket.emit("sendToMe", textClient.value);
 }
 
+
 // receive message
 socket.on('displayMessage', (message) => {
    target.innerHTML += '<br>'+message;
 });
 
-const setUser = () => {
-   let userName = document.getElementById('userName')
+// show all users
+socket.on('loggedInUsers', (users) => {
+   loggedInUsers.innerHTML = 'users:'
+   for (let i=o; users.length; i++){
+      loggedInUsers.innerHTML += '<br>'+users[i].name;
+   }
 
-}
+});
+
 
 
 
