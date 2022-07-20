@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('sendToMe', (message) => {
-        console.log('send: ' + message);
+        console.log('send: ' + message + ' from: ' +socket.id);
         socket.emit("displayMessage",(message));
     });
 
@@ -41,7 +41,18 @@ io.on('connection', (socket) => {
         io.emit("loggedInUsers",(users));
         });
 
-});
+    socket.on('disconnect', () => {
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].id === socket.id) {
+                users.splice(i, 1);
+            }
+        }
+
+        console.log('left: ', socket.id)
+        io.emit("loggedInUsers", (users));
+    });
+})
+;
 
 
 

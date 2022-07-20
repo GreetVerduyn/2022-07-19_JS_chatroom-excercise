@@ -5,7 +5,7 @@ let textClient = document.getElementById('input')
 let loggedInUsers = document.getElementById('allUsers')
 
 // set userName
-let userName = prompt("enter your name?");
+let userName = prompt("enter your name");
 
 //pass username
 socket.emit("login", userName);
@@ -24,18 +24,18 @@ const sendToMe = () => {
       name: userName,
       msg: textClient.value,
    }
-   socket.emit("sendToAll", message);
+   socket.emit("sendToMe", message);
 }
 
 
 // receive message
 socket.on('displayMessage', (message) => {
-   target.innerHTML += `<br> ${message.name} ${message.msg}`;
+   target.innerHTML += `<br> ${message.name}: ${message.msg}`;
 });
 
 // show all users
 socket.on('loggedInUsers', (users) => {
-   loggedInUsers.innerHTML = 'users:'
+   loggedInUsers.innerHTML = `Welcome, you chat with:`
    for (let i=0; i<users.length; i++){
       loggedInUsers.innerHTML += '<br>'+users[i].name;
    }
