@@ -35,6 +35,7 @@ io.on('connection', (socket) => {
     socket.on("login", (userName)=>{
         let user= {
             name: userName,
+            id:socket.id
         }
         users.push(user);
         io.emit("loggedInUsers",(users));
