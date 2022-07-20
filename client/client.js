@@ -3,14 +3,7 @@ let socket = io();
 
 let textClient = document.getElementById('input')
 
-/*
-document.getElementById('sentToAll').onclick = function () {
-   socket.emit("sendToAll", textClient.value);
-}
-
-document.getElementById('sent').onclick = function () {
-   socket.emit("sndMsg", textClient.value);
-}*/
+// send message
 const sendToAll = () => {
    socket.emit("sendToAll", textClient.value);
 }
@@ -19,17 +12,15 @@ const sendToMe = () => {
    socket.emit("sendToMe", textClient.value);
 }
 
-
+// receive message
 socket.on('displayMessage', (message) => {
    target.innerHTML += '<br>'+message;
 });
 
+const setUser = () => {
+   let userName = document.getElementById('userName')
 
-
-
-
-
-
+}
 
 
 

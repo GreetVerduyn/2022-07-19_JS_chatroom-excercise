@@ -22,15 +22,17 @@ io.on('connection', (socket) => {
     counter += 1;
     console.log(counter+' someone connected')
 
-    socket.on('sendToMe', (msg) => {
-        console.log('send: ' + msg);
-        socket.emit("displayMessage",(msg));
+    socket.on('sendToAll', (message) => {
+        console.log('send: ' + message);
+        io.emit("displayMessage", (message));
     });
 
-    socket.on('sendToAll', (msg) => {
-        console.log('send: ' + msg);
-        io.emit("displayMessage", (msg));
+    socket.on('sendToMe', (message) => {
+        console.log('send: ' + message);
+        socket.emit("displayMessage",(message));
     });
+
+
 });
 
 

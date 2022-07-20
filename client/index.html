@@ -8,14 +8,29 @@
 </head>
 <body>
 
+<div container-identification>
+    <h4>please enter your user name</h4>
+    <input id="userName">
+    <button type="button" id="inputName" onclick="setUser()">confirm</button>
 
-    <input type="text" id="input">
-    <button type="button" id="sentToAll" onclick="sendToAll()">sent to all</button>
-    <button type="button" onclick="sendToMe()" >sent to me</button>
+</div>
+
+<div class="container-input">
+    <h3>Message</h3>
+    <div class="inputfield">
+        <input type="text" id="input">
+        <div class="inputButtons">
+            <button type="button" id="sentToAll" onclick="sendToAll()">sent to all</button>
+            <button type="button" onclick="sendToMe()" >sent to me</button>
+        </div>
+
+    </div>
+
+</div>
 
 
-<div id="target">
-
+<div class="received">
+    <div id="target"></div>
 </div>
 
 

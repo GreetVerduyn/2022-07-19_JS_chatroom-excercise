@@ -1,5 +1,16 @@
 body {
   background-color: wheat;
 }
+body .container-input {
+  display: flex;
+  flex-direction: column;
+}
+body .container-input .inputfield #input {
+  height: 100px;
+  width: 300px;
+}
+body .container-input .inputButtons {
+  margin-top: 30px;
+}
 
 /*# sourceMappingURL=styles.css.map */
