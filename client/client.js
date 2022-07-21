@@ -15,6 +15,7 @@ const sendToAll = () => {
    const message = {
       name: userName,
       msg: textClient.value,
+      to:''
    }
    socket.emit("sendToAll", message);
 }
@@ -23,25 +24,59 @@ const sendToMe = () => {
    const message = {
       name: userName,
       msg: textClient.value,
+      to:''
    }
    socket.emit("sendToMe", message);
 }
 
 
-// receive message
+const sendToOne = (id, name, msg) => {
+   const messageToOne = {
+      msg: msg,
+      from: {
+         name: userName,
+         id: socket.id,
+      },
+      to: {
+         name: name,
+         id: id,
+      }
+   }
+   socket.emit("sendToOne", messageToOne);
+}
+
+// show message
 socket.on('displayMessage', (message) => {
-   target.innerHTML += `<br> ${message.name}: ${message.msg}`;
+   target.innerHTML += `<br> ${message.name} to ${message.to}: ${message.msg}`;
+});
+
+// show message from/to All
+socket.on('displayMessageToAll', (message) => {
+   target.innerHTML += `<br> ${message.name} to all: ${message.msg}`;
+});
+
+// show message from/to 1 person
+socket.on('displayMessageToOne', (message) => {
+   target.innerHTML += `<br> ${message.from.name} (prive): ${message.msg}`;
 });
 
 // show all users
 socket.on('loggedInUsers', (users) => {
-   loggedInUsers.innerHTML = `Welcome, you chat with:`
+   loggedInUsers.innerHTML = `You chat with:`
    for (let i=0; i<users.length; i++){
-      loggedInUsers.innerHTML += '<br>'+users[i].name;
+      loggedInUsers.innerHTML += `<div onclick="selectOne('${users[i].id}', '${users[i].name}')">${users[i].name}</div>`;
+      //loggedInUsers.innerHTML += '<br><div onclick="selectOne('+users[i]+')" >' +users[i].name+ '</div>';
+
    }
 
 });
 
+// select user
+let selectOne = (id, name) =>{
+   const msg = prompt("Send message to: " + name);
+  // console.log('test', msg, id, name);
+   sendToOne(id, name, msg);
+}
 
 
 

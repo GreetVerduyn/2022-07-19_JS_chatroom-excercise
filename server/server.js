@@ -23,16 +23,23 @@ io.on('connection', (socket) => {
     console.log(counter+' someone connected')
 
     socket.on('sendToAll', (message) => {
-        console.log('send: ' + message);
-        io.emit("displayMessage", (message));
+        //console.log('send: ' + message);
+        io.emit("displayMessageToAll", (message));
     });
 
     socket.on('sendToMe', (message) => {
-        console.log('send: ' + message + ' from: ' +socket.id);
+        //console.log('send: ' + message);
         socket.emit("displayMessage",(message));
     });
 
-    socket.on("login", (userName)=>{
+    socket.on('sendToOne', (messageToOne) => {
+        //console.log('send: ' + message.to.name);
+       io.to(messageToOne.to.id).emit("displayMessageToOne",(messageToOne));
+       socket.emit("displayMessage",({msg: messageToOne.msg, name: messageToOne.from.name, to:messageToOne.to.name }));
+    });
+
+// create array of all users
+    socket.on("login", (userName) => {
         let user= {
             name: userName,
             id:socket.id
@@ -47,8 +54,7 @@ io.on('connection', (socket) => {
                 users.splice(i, 1);
             }
         }
-
-        console.log('left: ', socket.id)
+        //console.log('left: ', socket.id)
         io.emit("loggedInUsers", (users));
     });
 })
