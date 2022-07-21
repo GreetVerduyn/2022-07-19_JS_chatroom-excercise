@@ -1,8 +1,10 @@
 
 let socket = io();
 
-let textClient = document.getElementById('input')
-let loggedInUsers = document.getElementById('allUsers')
+let textClient = document.getElementById('input');
+let loggedInUsers = document.getElementById('allUsers');
+let welcome = document.getElementById('welcome');
+let target = document.getElementById('target');
 
 // set userName
 let userName = prompt("enter your name");
@@ -62,7 +64,8 @@ socket.on('displayMessageToOne', (message) => {
 
 // show all users
 socket.on('loggedInUsers', (users) => {
-   loggedInUsers.innerHTML = `You chat with:`
+   welcome.innerHTML = `Welcome ${userName}`;
+   loggedInUsers.innerHTML = `active in chatroom:`;
    for (let i=0; i<users.length; i++){
       loggedInUsers.innerHTML += `<div onclick="selectOne('${users[i].id}', '${users[i].name}')">${users[i].name}</div>`;
       //loggedInUsers.innerHTML += '<br><div onclick="selectOne('+users[i]+')" >' +users[i].name+ '</div>';
