@@ -22,14 +22,14 @@ const sendToAll = () => {
    socket.emit("sendToAll", message);
 }
 
-const sendToMe = () => {
+/*const sendToMe = () => {
    const message = {
       name: userName,
       msg: textClient.value,
       to:''
    }
    socket.emit("sendToMe", message);
-}
+}*/
 
 
 const sendToOne = (id, name, msg) => {
@@ -49,23 +49,24 @@ const sendToOne = (id, name, msg) => {
 
 // show message
 socket.on('displayMessage', (message) => {
-   target.innerHTML += `<br> ${message.name} to ${message.to}: ${message.msg}`;
+   target.innerHTML += `<br> <br> <b>${message.name} to ${message.to}:</b> ${message.msg}`;
+
 });
 
 // show message from/to All
 socket.on('displayMessageToAll', (message) => {
-   target.innerHTML += `<br> ${message.name} to all: ${message.msg}`;
+   target.innerHTML += `<br><br> <b>${message.name} to all:</b> ${message.msg}`;
 });
 
 // show message from/to 1 person
 socket.on('displayMessageToOne', (message) => {
-   target.innerHTML += `<br> ${message.from.name} (prive): ${message.msg}`;
+   target.innerHTML += `<br><br> <b>${message.from.name}</b> (prive): ${message.msg}`;
 });
 
 // show all users
 socket.on('loggedInUsers', (users) => {
    welcome.innerHTML = `Welcome ${userName}`;
-   loggedInUsers.innerHTML = `active in chatroom:`;
+   loggedInUsers.innerHTML = `<b>active in chatroom:</b> <br> <small>click if you want to send a personal message</small> `;
    for (let i=0; i<users.length; i++){
       loggedInUsers.innerHTML += `<div onclick="selectOne('${users[i].id}', '${users[i].name}')">${users[i].name}</div>`;
       //loggedInUsers.innerHTML += '<br><div onclick="selectOne('+users[i]+')" >' +users[i].name+ '</div>';

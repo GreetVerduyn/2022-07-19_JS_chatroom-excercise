@@ -17,51 +17,60 @@ body .container-top #welcome {
 }
 body .container-top #allUsers {
   background-color: rgb(244, 249, 255);
-  width: 300px;
+  width: 350px;
   font-size: 20px;
   border-radius: 50px;
   text-align: center;
   color: rgb(231, 199, 187);
+  overflow: auto;
 }
 body .container-text {
   display: flex;
   flex-direction: column;
+  margin-left: 400px;
 }
 body .container-text h1 {
   color: rgb(228, 182, 166);
   background-color: rgb(240, 244, 255);
+  margin-left: 15px;
+  margin-right: 15px;
 }
 body .container-text .textfield {
   display: flex;
   justify-content: flex-start;
 }
 body .container-text .textfield .sentItems {
-  margin-right: 160px;
+  margin-right: 100px;
+  margin-left: 10px;
 }
 body .container-text .textfield #input {
-  height: 75px;
-  width: 300px;
+  padding-left: 10px;
+  margin-left: 5px;
+  height: 250px;
+  width: 400px;
   border-radius: 25px;
   background-color: rgb(240, 249, 255);
   border-color: rgb(231, 199, 187);
-  margin-left: 50x;
+}
+body .container-text .textfield .inputButtons {
+  margin-top: 30px;
+}
+body .container-text .textfield .inputButtons .button {
+  border-radius: 25px;
+  background-color: rgb(244, 249, 255);
+  border-color: rgb(231, 199, 187);
 }
 body .container-text .textfield #target {
-  height: 150px;
-  width: 300px;
+  padding-left: 10px;
+  height: 300px;
+  width: 500px;
+  word-wrap: break-word;
+  overflow: auto;
   border-radius: 25px;
   background-color: rgb(231, 199, 187);
   border-style: solid;
   border-color: dimgrey;
   color: dimgrey;
-}
-body .container-text .inputButtons {
-  margin-top: 30px;
-}
-body .container-text .inputButtons .button {
-  border-radius: 25px;
-  background-color: rgb(244, 249, 255);
-  border-color: rgb(231, 199, 187);
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -152,3 +152,20 @@ removeListener
 
 2. once all the code is written, I'll look for a layout... bootstrap or come up with something myself?
 
+I'll do it myselve
+
+- [x] finding a background (not that easy)
+- [x] looking or colors that fits with the background
+    -   try to use ColorPick
+- [x] make the text fields rounded
+- [x] make the text fit into the boxes
+        - not the same for a div (overflow-wrap) and an input, I had to change the 'input' into a 'textarea'
+- [x] make the name of the sender bold... had to do this in JavaScript
+- [x]  align
+    -   margin-left -> whole box moves
+    -   padding-left -> text in box moves
+- []
+- []
+
+
+
