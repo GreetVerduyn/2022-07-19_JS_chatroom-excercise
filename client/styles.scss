@@ -1,19 +1,62 @@
 body {
-  background-color: wheat;
+  background-image: url("images/pexels-jess-bailey-designs-1097930_2.jpg");
+  height: 100%;
+
+
+  .container-top{
+    display: flex;
+    justify-content: space-around;
+
+
+    #welcome{
+      width: auto;
+      font-size: 65px;
+      color: rgb(231,199,187);
+      margin-top: 25px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    #allUsers{
+      background-color:rgb(244,249,255);
+      width: 300px;
+      font-size: 20px;
+      border-radius: 50px;
+      text-align: center;
+      color: rgb(231,199,187);
+
+    }
+  }
+
 
   .container-input{
     display: flex;
     flex-direction: column;
 
+    h1{
+      color:rgb(231,199,187);
+      background-color: rgb(240,244,255);
+
+    }
+
     .inputfield {
       #input{
         height: 100px;
         width: 300px;
+        border-radius: 25px;
+        background-color: rgb(240,249,255);
+        border-color: rgb(231,199,187);
       }
 
     }
     .inputButtons{
       margin-top: 30px;
+
+      .button{
+        border-radius: 25px;
+        background-color: rgb(244,249,255);
+        border-color: rgb(231,199,187);
+      }
     }
 
 
