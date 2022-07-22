@@ -52,3 +52,103 @@ Receiver
  console.log(arg); // "world"
  callback("got it");
  });
+
+# the excercise
+
+1. Something new again...
+
+This time I started looking for information.
+With some extra info from Sicco, Tim and Koen I was on my way.
+
+We are creating a local server (server.js) on port 8080 and install socket.io.
+When you log into this browser, the user will automatically get a socket-id.
+
+The client issues a command to the browsers, with the necessary info: socket.emit (name of message, message with all info).
+The server receives and recognizes this message: socket.on (name of the message client, message with all info),
+processes this message, takes some actions and replies with a new message to the client:
+socket.emit (name new message, message with all (processed) info), which the client receives back:
+socket.on ((name new message from server, message with all (processed) info). this is processed and converted into code to be executed.
+(or converted to a new message to the server, which needs to be reprocessed)
+
+This cheat sheet will get you a long way
+
+https://socket.io/docs/v3/emit-cheatsheet/
+
+Emit cheatsheet
+
+Server-side
+io.on("connection", (socket) => {
+
+  // basic emit
+  socket.emit(/* ... */);
+
+  // to all clients in the current namespace except the sender
+  socket.broadcast.emit(/* ... */);
+
+  // to all clients in room1 except the sender
+  socket.to("room1").emit(/* ... */);
+
+  // to all clients in room1 and/or room2 except the sender
+  socket.to("room1").to("room2").emit(/* ... */);
+
+  // to all clients in room1
+  io.in("room1").emit(/* ... */);
+
+  // to all clients in namespace "myNamespace"
+  io.of("myNamespace").emit(/* ... */);
+
+  // to all clients in room1 in namespace "myNamespace"
+  io.of("myNamespace").to("room1").emit(/* ... */);
+
+  // to individual socketid (private message)
+  io.to(socketId).emit(/* ... */);
+
+  // to all clients on this node (when using multiple nodes)
+  io.local.emit(/* ... */);
+
+  // to all connected clients
+  io.emit(/* ... */);
+
+  // WARNING: `socket.to(socket.id).emit()` will NOT work, as it will send to everyone in the room
+  // named `socket.id` but the sender. Please use the classic `socket.emit()` instead.
+
+  // with acknowledgement
+  socket.emit("question", (answer) => {
+    // ...
+  });
+
+  // without compression
+  socket.compress(false).emit(/* ... */);
+
+  // a message that might be dropped if the low-level transport is not writable
+  socket.volatile.emit(/* ... */);
+
+});
+
+Client-side
+
+ // basic emit
+socket.emit(/* ... */);
+
+ // with acknowledgement
+socket.emit("question", (answer) => {
+// ...
+});
+
+ // without compression
+socket.compress(false).emit(/* ... */);
+
+ // a message that might be dropped if the low-level transport is not writable
+socket.volatile.emit(/* ... */);
+Reserved events
+On each side, the following events are reserved and should not be used as event names by your application:
+
+connect
+connect_error
+disconnect
+disconnecting
+newListener
+removeListener
+
+2. once all the code is written, I'll look for a layout... bootstrap or come up with something myself?
+
