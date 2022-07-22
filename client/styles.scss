@@ -53,13 +53,15 @@ body {
         margin-left: 10px;
       }
       #input{
-        padding-left: 10px;
+        padding: 10px;
         margin-left: 5px;
         height: 250px;
         width: 400px;
         border-radius: 25px;
+        border-style: solid;
         background-color: rgb(240,249,255);
         border-color: rgb(231,199,187);
+        color: dimgrey;
 
 
       }
@@ -72,7 +74,7 @@ body {
         }
       }
       #target{
-        padding-left: 10px;
+        padding: 10px;
         height: 300px;
         width: 500px;
         word-wrap: break-word;
@@ -80,7 +82,7 @@ body {
         border-radius: 25px;
         background-color: rgb(231,199,187);
         border-style: solid;
-        border-color: dimgrey;
+        border-color: rgb(223,140,115);
         color: dimgrey;
 
       }

@@ -164,7 +164,7 @@ I'll do it myselve
 - [x]  align
     -   margin-left -> whole box moves
     -   padding-left -> text in box moves
-- []
+- [x]  make inputfield empty by sending the message (textarea.value='')
 - []
 
 

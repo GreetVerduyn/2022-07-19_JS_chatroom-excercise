@@ -44,13 +44,15 @@ body .container-text .textfield .sentItems {
   margin-left: 10px;
 }
 body .container-text .textfield #input {
-  padding-left: 10px;
+  padding: 10px;
   margin-left: 5px;
   height: 250px;
   width: 400px;
   border-radius: 25px;
+  border-style: solid;
   background-color: rgb(240, 249, 255);
   border-color: rgb(231, 199, 187);
+  color: dimgrey;
 }
 body .container-text .textfield .inputButtons {
   margin-top: 30px;
@@ -61,7 +63,7 @@ body .container-text .textfield .inputButtons .button {
   border-color: rgb(231, 199, 187);
 }
 body .container-text .textfield #target {
-  padding-left: 10px;
+  padding: 10px;
   height: 300px;
   width: 500px;
   word-wrap: break-word;
@@ -69,7 +71,7 @@ body .container-text .textfield #target {
   border-radius: 25px;
   background-color: rgb(231, 199, 187);
   border-style: solid;
-  border-color: dimgrey;
+  border-color: rgb(223, 140, 115);
   color: dimgrey;
 }
 

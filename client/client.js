@@ -19,7 +19,9 @@ const sendToAll = () => {
       msg: textClient.value,
       to:''
    }
+   textClient.value ='';
    socket.emit("sendToAll", message);
+
 }
 
 /*const sendToMe = () => {
@@ -44,6 +46,7 @@ const sendToOne = (id, name, msg) => {
          id: id,
       }
    }
+   textClient.value ='';
    socket.emit("sendToOne", messageToOne);
 }
 
@@ -56,12 +59,12 @@ socket.on('displayMessage', (message) => {
 // show message from/to All
 socket.on('displayMessageToAll', (message) => {
    target.innerHTML += `<br><br> <b>${message.name} to all:</b> ${message.msg}`;
-});
+   });
 
 // show message from/to 1 person
 socket.on('displayMessageToOne', (message) => {
    target.innerHTML += `<br><br> <b>${message.from.name}</b> (prive): ${message.msg}`;
-});
+   });
 
 // show all users
 socket.on('loggedInUsers', (users) => {
