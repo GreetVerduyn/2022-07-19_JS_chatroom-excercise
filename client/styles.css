@@ -13,6 +13,7 @@ body .container-top #welcome {
   margin-top: 25px;
   margin-bottom: 50px;
   text-align: center;
+  text-shadow: 2px 2px dimgrey;
 }
 body .container-top #allUsers {
   background-color: rgb(244, 249, 255);
@@ -22,25 +23,42 @@ body .container-top #allUsers {
   text-align: center;
   color: rgb(231, 199, 187);
 }
-body .container-input {
+body .container-text {
   display: flex;
   flex-direction: column;
 }
-body .container-input h1 {
-  color: rgb(231, 199, 187);
+body .container-text h1 {
+  color: rgb(228, 182, 166);
   background-color: rgb(240, 244, 255);
 }
-body .container-input .inputfield #input {
-  height: 100px;
+body .container-text .textfield {
+  display: flex;
+  justify-content: flex-start;
+}
+body .container-text .textfield .sentItems {
+  margin-right: 160px;
+}
+body .container-text .textfield #input {
+  height: 75px;
   width: 300px;
   border-radius: 25px;
   background-color: rgb(240, 249, 255);
   border-color: rgb(231, 199, 187);
+  margin-left: 50x;
 }
-body .container-input .inputButtons {
+body .container-text .textfield #target {
+  height: 150px;
+  width: 300px;
+  border-radius: 25px;
+  background-color: rgb(231, 199, 187);
+  border-style: solid;
+  border-color: dimgrey;
+  color: dimgrey;
+}
+body .container-text .inputButtons {
   margin-top: 30px;
 }
-body .container-input .inputButtons .button {
+body .container-text .inputButtons .button {
   border-radius: 25px;
   background-color: rgb(244, 249, 255);
   border-color: rgb(231, 199, 187);

@@ -15,6 +15,7 @@ body {
       margin-top: 25px;
       margin-bottom: 50px;
       text-align: center;
+      text-shadow: 2px 2px dimgrey;
     }
 
     #allUsers{
@@ -29,23 +30,42 @@ body {
   }
 
 
-  .container-input{
+  .container-text{
     display: flex;
     flex-direction: column;
 
     h1{
-      color:rgb(231,199,187);
+      color:rgb(228,182,166);
       background-color: rgb(240,244,255);
+
 
     }
 
-    .inputfield {
+    .textfield {
+      display: flex;
+      justify-content: flex-start;
+
+      .sentItems{
+        margin-right: 160px;
+      }
       #input{
-        height: 100px;
+        height: 75px;
         width: 300px;
         border-radius: 25px;
         background-color: rgb(240,249,255);
         border-color: rgb(231,199,187);
+        margin-left: 50x;
+      }
+
+      #target{
+        height: 150px;
+        width: 300px;
+        border-radius: 25px;
+        background-color: rgb(231,199,187);
+        border-style: solid;
+        border-color: dimgrey;
+        color: dimgrey;
+
       }
 
     }

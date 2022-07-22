@@ -9,30 +9,29 @@
 <body>
 
 <div class="container-top">
-<div id="welcome"></div>
-<div id=allUsers></div>
+    <div id="welcome"></div>
+    <div id=allUsers></div>
 </div>
 
-<div class="container-input">
+<div class="container-text">
     <h1>Message</h1>
-    <div class="inputfield">
-        <div>
+    <div class="textfield">
+
+        <div class="sentItems">
             <input type="text" id="input">
             <div class="inputButtons">
                 <button class=button type="button" id="sentToAll" onclick="sendToAll()">sent to all</button>
                 <button class= button type="button" onclick="sendToMe()" >sent to me</button>
             </div>
         </div>
-
+        <div id="target"></div>
 
     </div>
 
 </div>
 
 
-<div class="received">
-    <div id="target"></div>
-</div>
+
 
 
 
